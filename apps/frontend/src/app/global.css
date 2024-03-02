@@ -52,6 +52,11 @@ pre {
   padding: 0.5rem 0.75rem;
 }
 
+.page-max-w {
+  max-width: 90vw;
+  margin: auto;
+}
+
 .nav-link {
   transition: 300ms;
 }
