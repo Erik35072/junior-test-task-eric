@@ -12,7 +12,7 @@ type Props = {
   title: string;
   thumbnail: string;
   city: string;
-  price: string;
+  price: number;
 };
 
 export default function Card({ id, title, thumbnail, city, price }: Props) {

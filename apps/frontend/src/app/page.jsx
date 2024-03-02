@@ -9,7 +9,6 @@ const Index = () => {
   const fetchAds = useCallback(() => {
     const fetchData = async () => {
       const { results } = await Api.ads.getAds();
-      console.log(results);
     };
     fetchData();
   }, []);
