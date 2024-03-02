@@ -1,11 +1,14 @@
 import { PropsWithChildren } from "react";
-import { Box } from "@mui/material";
+// components
+import { Box, Divider } from "@mui/material";
+import Filter from "./components/filter";
 
 export default function AdsLayout({ children }: PropsWithChildren) {
   return (
     <Box className="page-max-w">
       <Box sx={{ display: "flex", flexDirection: "column", py: 1 }}>
-        <Box>filters</Box>
+        <Filter />
+        <Divider />
         <Box>{children}</Box>
       </Box>
     </Box>

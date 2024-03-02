@@ -11,7 +11,7 @@ const BaseField = ({ input_bgcolor = "200", ...props }: PropsWithChildren<BaseFi
     fullWidth
     sx={{
       "& div": { bgcolor: `grey.${input_bgcolor}`, borderRadius: "8px" },
-      "& input": { fontSize: { xs: 13, xl: 16 }, lineHeight: "19px", px: { xs: 2, xl: 4 } }
+      "& input": { fontSize: { xs: 13, xl: 16 }, lineHeight: "12px", px: { xs: 1, xl: 2 } }
     }}
     {...props}
   />

@@ -29,6 +29,7 @@ const FormikField = ({
         helperText={errors ? errors[field_key] : "Unknown Error"}
         label={title}
         input_bgcolor={input_bgcolor}
+        InputLabelProps={{ sx: { fontSize: 14 } }}
         {...props}
       >
         {children}
