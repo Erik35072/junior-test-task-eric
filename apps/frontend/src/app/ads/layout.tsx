@@ -21,12 +21,12 @@ export default function AdsLayout({ children }: PropsWithChildren) {
     <Box className="page-max-w">
       <Box sx={{ display: "flex", flexDirection: "column", py: 1 }}>
         <Box sx={{ display: "flex", gap: "20px", alignItems: "center", py: 2 }}>
-          <Typography sx={{ fontSize: 20 }}>Ads list</Typography>
+          <Typography sx={{ fontSize: 20, fontWeight: "bold" }}>Ads list</Typography>
           <Button
             onClick={handleFiltersOpen}
             sx={{
               bgcolor: "secondary.main",
-              color: "common.black",
+              color: "common.white",
               borderRadius: 2,
               "&:hover": {
                 bgcolor: "primary.main",
@@ -34,7 +34,7 @@ export default function AdsLayout({ children }: PropsWithChildren) {
               }
             }}
           >
-            Filter
+            Apply filters
           </Button>
         </Box>
         <Divider />

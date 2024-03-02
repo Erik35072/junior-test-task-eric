@@ -9,16 +9,13 @@ const FormikSubmit = ({ loading, children, ...props }: PropsWithChildren<Loading
     loading={loading}
     sx={{
       bgcolor: "primary.main",
-      color: "primary.light",
+      color: "primary.white",
       fontSize: { xs: 13, xl: 12 },
       fontWeight: 600,
       height: "100%",
       lineHeight: "19px",
       py: { xs: 1, md: 1 },
-      whiteSpace: "nowrap",
-      "&:hover": {
-        color: "common.white"
-      }
+      whiteSpace: "nowrap"
     }}
     {...props}
   >

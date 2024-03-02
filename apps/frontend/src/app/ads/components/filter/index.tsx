@@ -32,7 +32,7 @@ export default function Filter() {
             <FormikField field_key="search" size="small" title="Search" />
           </Box>
           <Box sx={{ flexBasis: "10%" }}>
-            <FormikSubmitBtn fullWidth>Apply filters</FormikSubmitBtn>
+            <FormikSubmitBtn fullWidth>Apply</FormikSubmitBtn>
           </Box>
         </Box>
       </FormikProvider>
