@@ -1,16 +1,16 @@
 'use client'
 
-import axios from 'axios';
 import React, { useCallback } from 'react';
 import { Button, Box } from '@mui/material';
 import styles from './index.module.scss';
+import Api from '../api';
 
 
 const Index = () => {
   const fetchAds = useCallback(() => {
     const fetchData = async () => {
-      const { data } = await axios.get('/api/ads?minPrice=1000000');
-      console.log(data);
+      const { results } = await Api.ads.getAds()
+      console.log(results);
     }
     fetchData();
   }, []);
