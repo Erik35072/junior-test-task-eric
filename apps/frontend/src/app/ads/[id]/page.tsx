@@ -1,9 +1,13 @@
 "use client";
 
+import Api from "src/api";
 import { useParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import Api from "src/api";
+// utils
+import { toast } from "react-toastify";
+// components
 import { Ad } from "src/types/ad";
+import { Box } from "@mui/material";
 
 export default function AdDetails() {
   const { id } = useParams();
@@ -12,9 +16,12 @@ export default function AdDetails() {
 
   const getAd = useCallback(async (addId: string) => {
     try {
-      const { results } = await Api.ads.getAd(addId);
-      if (results) {
-        setAd(results);
+      const { error, ...adFromResponse } = await Api.ads.getAd(addId);
+
+      if (!error) {
+        setAd(adFromResponse);
+      } else {
+        toast(`Something went wrong : Trying to refetch please wait.`, { type: "error", onClose: () => getAd(addId) });
       }
     } catch (error) {
       throw new Error(error as string);
@@ -25,5 +32,5 @@ export default function AdDetails() {
     getAd(id as string);
   }, [getAd, id]);
 
-  return <div>{ad?.id}</div>;
+  return <Box sx={{ px: 5, py: 2 }} />;
 }

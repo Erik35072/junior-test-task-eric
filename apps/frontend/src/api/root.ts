@@ -1,5 +1,4 @@
 import axios, { AxiosError, Method } from "axios";
-import { toast } from "react-toastify";
 import { ResponseModel } from "src/types/api";
 // types
 
@@ -13,7 +12,7 @@ export default class RootSlice {
     url = "",
     method: Method = "GET",
     payload: Record<string, unknown> | FormData | null = null
-  ): Promise<ResponseModel<T>> {
+  ): Promise<ResponseModel & T> {
     try {
       const rsp =
         (await axios({
@@ -22,9 +21,10 @@ export default class RootSlice {
           data: payload || {},
           responseType: "json"
         })) || {};
+
       return rsp?.data;
     } catch (err) {
-      return (err as AxiosError<ResponseModel<T>>).response!.data;
+      return (err as AxiosError<ResponseModel & T>).response!.data;
     }
   }
 }

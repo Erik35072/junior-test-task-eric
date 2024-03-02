@@ -4,8 +4,7 @@ export type Pagination = {
   total?: number;
 };
 
-export interface ResponseModel<T = unknown> extends Pagination {
-  results?: T;
+export interface ResponseModel extends Pagination {
   error?: string;
   message?: string;
   code?: number;
