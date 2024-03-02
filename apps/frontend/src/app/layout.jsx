@@ -16,7 +16,9 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Header />
-        <Box component="main">{children}</Box>
+        <Box component="main" sx={{ minHeight: "80vh" }}>
+          {children}
+        </Box>
         <Footer />
       </body>
     </html>
