@@ -13,7 +13,7 @@ export default function Header() {
             Logo
           </Typography>
         </NavLink>
-        <NavLink to="/ads">Ads</NavLink>
+        <NavLink to="/ads">View Ads</NavLink>
       </Box>
     </AppBar>
   );
