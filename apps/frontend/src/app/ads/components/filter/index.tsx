@@ -4,9 +4,8 @@ import React from "react";
 // components
 import { Box, Typography } from "@mui/material";
 import { FormikProvider, useFormik } from "formik";
-import { FormikField } from "../../../components/common/control";
+import { FormikField, FormikSubmitBtn } from "@commonComponents/control";
 import Search from "./search";
-import FormikSubmit from "../../../components/common/control/formik-submit";
 
 export default function Filter() {
   const formik = useFormik({ initialValues: {}, onSubmit: () => {} });
@@ -32,7 +31,7 @@ export default function Filter() {
             <FormikField field_key="district" size="small" title="District" />
           </Box>
           <Box sx={{ flexBasis: "10%" }}>
-            <FormikSubmit fullWidth>Apply filters</FormikSubmit>
+            <FormikSubmitBtn fullWidth>Apply filters</FormikSubmitBtn>
           </Box>
         </Box>
       </FormikProvider>

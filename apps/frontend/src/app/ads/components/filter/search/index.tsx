@@ -2,7 +2,7 @@ import React from "react";
 // components
 import { FormikProvider, useFormik } from "formik";
 import { Box } from "@mui/material";
-import { FormikField } from "../../../../components/common/control";
+import { FormikField } from "@commonComponents/control";
 
 export default function Search() {
   const formik = useFormik({ initialValues: {}, onSubmit: () => {} });

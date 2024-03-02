@@ -1,6 +1,9 @@
 import React from "react";
 import "./global.css";
 import { Box } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "../providers/mui";
 import { Header, Footer } from "./components/layout";
 
 export const metadata = {
@@ -17,7 +20,9 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         <Box component="main" sx={{ minHeight: "80vh" }}>
-          {children}
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          </AppRouterCacheProvider>
         </Box>
         <Footer />
       </body>
