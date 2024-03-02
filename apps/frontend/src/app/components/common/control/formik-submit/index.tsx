@@ -8,8 +8,8 @@ const FormikSubmit = ({ loading, children, ...props }: PropsWithChildren<Loading
     type="submit"
     loading={loading}
     sx={{
-      bgcolor: "secondary.light",
-      color: "common.black",
+      bgcolor: "primary.main",
+      color: "primary.light",
       fontSize: { xs: 13, xl: 12 },
       fontWeight: 600,
       height: "100%",
