@@ -1,11 +1,13 @@
 "use client";
 
+import { MouseEvent, useState } from "react";
+// components
 import { Box, IconButton, Paper, Typography } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 // images
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import Link from "next/link";
-import { MouseEvent, useState } from "react";
+import LikeButton from "../like-button";
 
 type Props = {
   id: string;
@@ -40,9 +42,7 @@ export default function Card({ id, title, thumbnail, city, price }: Props) {
               <Typography className="ellipsis" sx={{ fontSize: { xs: 12, sm: 14, xl: 17 } }}>
                 {title}
               </Typography>
-              <IconButton title="Like" size="small" onClick={toggleLike}>
-                <ThumbUpIcon sx={{ color: isLiked ? "red" : "unset" }} />
-              </IconButton>
+              <LikeButton id={id} />
             </Box>
             <Box sx={{ display: "flex", gap: "20px", justifyContent: "space-between", alignItems: "center", pr: 0.5 }}>
               <Typography
