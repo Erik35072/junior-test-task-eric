@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { Box } from "@mui/material";
 import { Ad } from "src/types/ad";
 import Api from "src/api";
+import { WrapWithLoading } from "@customComponents/wrappers";
 import { AdCard } from "../../components/ads";
 import AdsCap from "../../components/ads/cap";
 
@@ -14,11 +15,11 @@ export default function Ads() {
 
   const getAds = useCallback(async () => {
     try {
-      const { results, message } = await Api.ads.getAds();
+      const { results } = await Api.ads.getAds();
       if (results) {
         setAds(results);
       } else {
-        toast(message, { delay: 2000 });
+        toast(`Something went wrong : Trying to refetch please wait.`, { type: "error", onClose: () => getAds() });
       }
     } catch (error) {
       throw new Error(error as string);
@@ -30,23 +31,26 @@ export default function Ads() {
   }, [getAds]);
 
   return (
-    <Box>
+    <Box className="page-max-w">
       <AdsCap />
-      <Box
-        sx={{
-          display: "grid",
-          py: 5,
-          gap: "20px",
-          justifyContent: "center",
-          gridTemplateColumns: "repeat(4, 250px)",
-          gridAutoRows: "250px"
-        }}
-      >
-        {ads.map(({ id, title, city_name, price, images }) => (
-          <Box key={`ad-card-${id}`}>
-            <AdCard id={id} title={title} city={city_name} price={price} thumbnail={images[0].thumbnail} />
+      <Box sx={{ py: 5 }}>
+        <WrapWithLoading loading={!ads.length}>
+          <Box
+            sx={{
+              display: "grid",
+              gap: "20px",
+              justifyContent: "center",
+              gridTemplateColumns: "repeat(4, 250px)",
+              gridAutoRows: "250px"
+            }}
+          >
+            {ads.map(({ id, title, city_name, price, images }) => (
+              <Box key={`ad-card-${id}`}>
+                <AdCard id={id} title={title} city={city_name} price={price} thumbnail={images[0].thumbnail} />
+              </Box>
+            ))}
           </Box>
-        ))}
+        </WrapWithLoading>
       </Box>
     </Box>
   );

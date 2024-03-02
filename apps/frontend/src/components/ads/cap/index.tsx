@@ -18,7 +18,7 @@ export default function AdsCap() {
   };
 
   return (
-    <Box className="page-max-w">
+    <Box>
       <Box sx={{ display: "flex", flexDirection: "column", py: 1 }}>
         <Box sx={{ display: "flex", gap: "20px", alignItems: "center", py: 2 }}>
           <Typography sx={{ fontSize: 20, fontWeight: "bold" }}>Ads list</Typography>

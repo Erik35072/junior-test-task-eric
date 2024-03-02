@@ -14,6 +14,8 @@
     "incremental": true,
     "paths": {
       "@commonComponents/*": ["src/components/common/*"],
+      "@customComponents/*": ["src/components/custom/*"],
+      "@components/*": ["src/components/*"],
       "@context/*": ["src/providers/context*"],
       "@images/*": ["public/images/*"]
     },
