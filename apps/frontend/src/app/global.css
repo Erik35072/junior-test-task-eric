@@ -52,6 +52,12 @@ pre {
   padding: 0.5rem 0.75rem;
 }
 
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .page-max-w {
   max-width: 90vw;
   margin: auto;

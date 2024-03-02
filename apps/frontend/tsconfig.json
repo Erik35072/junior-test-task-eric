@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "jsx": "preserve",
     "allowJs": true,
     "esModuleInterop": true,
@@ -13,8 +13,9 @@
     "isolatedModules": true,
     "incremental": true,
     "paths": {
-      "@commonComponents/*": ["app/components/common/*"],
-      "@context/*": ["providers/context*"]
+      "@commonComponents/*": ["src/app/components/common/*"],
+      "@context/*": ["src/providers/context*"],
+      "@images/*": ["public/images/*"]
     },
     "plugins": [
       {
