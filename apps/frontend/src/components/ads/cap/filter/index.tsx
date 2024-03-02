@@ -4,7 +4,7 @@ import React from "react";
 // components
 import { Box, Typography } from "@mui/material";
 import { FormikProvider, useFormik } from "formik";
-import { FormikField, FormikSubmitBtn } from "@commonComponents/control";
+import { FormikField, FormikSubmitBtn } from "src/components/common/control";
 
 export default function Filter() {
   const formik = useFormik({ initialValues: {}, onSubmit: () => {} });

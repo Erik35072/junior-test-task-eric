@@ -1,12 +1,12 @@
 "use client";
 
-import { PropsWithChildren, useState } from "react";
+import { useState } from "react";
 // components
-import { Box, Button, Divider, Paper, Typography } from "@mui/material";
-import { BaseModal } from "@commonComponents/modal";
-import Filter from "./components/filter";
+import { Box, Button, Paper, Typography } from "@mui/material";
+import { BaseModal } from "src/components/common/modal";
+import Filter from "./filter";
 
-export default function AdsLayout({ children }: PropsWithChildren) {
+export default function AdsCap() {
   const [openFilters, setOpenFilters] = useState(false);
 
   const handleFiltersOpen = () => {
@@ -37,8 +37,6 @@ export default function AdsLayout({ children }: PropsWithChildren) {
             Apply filters
           </Button>
         </Box>
-        <Divider />
-        <Box>{children}</Box>
       </Box>
 
       <BaseModal open={openFilters} onClose={handleFiltersClose}>

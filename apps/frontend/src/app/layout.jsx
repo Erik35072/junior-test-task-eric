@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../providers/mui";
-import { Header, Footer } from "./components/layout";
+import { Header, Footer } from "../components/layout";
 
 export const metadata = {
   title: "Welcome to frontend",

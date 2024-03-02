@@ -13,7 +13,7 @@
     "isolatedModules": true,
     "incremental": true,
     "paths": {
-      "@commonComponents/*": ["src/app/components/common/*"],
+      "@commonComponents/*": ["src/components/common/*"],
       "@context/*": ["src/providers/context*"],
       "@images/*": ["public/images/*"]
     },
