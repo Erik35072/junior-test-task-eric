@@ -26,6 +26,8 @@ export default function Card({ id, title, thumbnail, city, price }: Props) {
             width="0"
             height="0"
             sizes="100vw"
+            placeholder="blur"
+            blurDataURL={thumbnail}
             style={{ width: "100%", minHeight: "150px", objectFit: "cover", borderRadius: "4px 4px 0 0" }}
           />
           <Box sx={{ p: 1 }}>
