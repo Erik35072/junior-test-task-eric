@@ -40,7 +40,7 @@ export default function Ads() {
               display: "grid",
               gap: "20px",
               justifyContent: "center",
-              gridTemplateColumns: "repeat(4, 250px)",
+              gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 190px)", lg: "repeat(4, 250px)" },
               gridAutoRows: "250px"
             }}
           >
