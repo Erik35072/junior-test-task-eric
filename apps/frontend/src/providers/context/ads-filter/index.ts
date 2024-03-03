@@ -2,7 +2,7 @@ import { createContext } from "react";
 import { AdFilterTypes } from "src/types/ad/filters";
 
 export interface FilterContextProps {
-  onFilter(params: AdFilterTypes): void;
+  onFilter(params?: AdFilterTypes): void;
   filtering: boolean;
 }
 
