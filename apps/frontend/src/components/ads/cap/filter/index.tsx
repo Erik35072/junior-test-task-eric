@@ -7,7 +7,7 @@ import { FormikProvider, useFormik } from "formik";
 import { FormikField, FormikSubmitBtn } from "src/components/common/control";
 // types
 import { AdFilterTypes } from "src/types/ad/filters";
-import { FilterContext } from "@context//ads-filter";
+import { FilterContext } from "@context/ads-filter";
 
 interface Props {
   closeModal: () => void;

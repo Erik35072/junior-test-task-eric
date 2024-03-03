@@ -16,7 +16,7 @@
       "@commonComponents/*": ["src/components/common/*"],
       "@customComponents/*": ["src/components/custom/*"],
       "@components/*": ["src/components/*"],
-      "@context/*": ["src/providers/context*"],
+      "@context/*": ["src/providers/context/*"],
       "@images/*": ["public/images/*"]
     },
     "plugins": [

@@ -8,7 +8,7 @@ import { Ad } from "src/types/ad";
 import Api from "src/api";
 import { WrapWithLoading } from "@customComponents/wrappers";
 import { AdFilterTypes } from "src/types/ad/filters";
-import { FilterContextProvider } from "@context//ads-filter";
+import { FilterContextProvider } from "@context/ads-filter";
 import WrapWithNoResult from "@customComponents/wrappers/wrap-with-no-result";
 import { AdCard } from "../../components/ads";
 import AdsCap from "../../components/ads/cap";
