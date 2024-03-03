@@ -27,17 +27,22 @@ export default function LikeButton({ id }: Props) {
     (e: MouseEvent) => {
       e.preventDefault();
       setIsLiked(c => !c);
+
       const likedAds = localStorage.getItem(LIKED_ADS_STORAGE_KEY);
+
       if (likedAds !== null) {
         const likedAdsParsed: LikeAdType[] = JSON.parse(likedAds);
         const currentAd = likedAdsParsed.find(({ id: sId }) => sId === id);
-        const isExist = Boolean(currentAd);
-        if (isExist) {
+
+        if (currentAd) {
+          // unlike
           localStorage.setItem(LIKED_ADS_STORAGE_KEY, JSON.stringify(likedAdsParsed.filter(({ id: sId }) => id !== sId)));
         } else {
+          // like
           localStorage.setItem(LIKED_ADS_STORAGE_KEY, JSON.stringify([...likedAdsParsed, { id }]));
         }
       } else {
+        // first liked
         localStorage.setItem(LIKED_ADS_STORAGE_KEY, JSON.stringify([{ id }]));
       }
     },
