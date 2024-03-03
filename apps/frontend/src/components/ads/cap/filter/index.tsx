@@ -8,21 +8,25 @@ import { FormikField, FormikSubmitBtn } from "src/components/common/control";
 // types
 import { AdFilterTypes } from "src/types/ad/filters";
 import { FilterContext } from "@context/ads-filter";
+import useSessionStorage from "@hooks/use-session-storage";
 
 interface Props {
   closeModal: () => void;
 }
 
+export const FILTER_STORAGE_KEY = "filters";
+
 export default function Filter({ closeModal }: Props) {
   const { onFilter, filtering } = useContext(FilterContext);
+  const [ssFilters, setSsFilters] = useSessionStorage<AdFilterTypes>(FILTER_STORAGE_KEY, {});
 
   const formik = useFormik<AdFilterTypes>({
     initialValues: {
-      maxPrice: "",
-      minPrice: "",
-      search: "",
-      city: "",
-      district: ""
+      maxPrice: ssFilters?.maxPrice ?? "",
+      minPrice: ssFilters?.minPrice ?? "",
+      search: ssFilters?.search ?? "",
+      city: ssFilters?.city ?? "",
+      district: ssFilters?.district ?? ""
     },
     onSubmit: values => {
       const filters: { [key: string]: string } = {};
@@ -33,8 +37,14 @@ export default function Filter({ closeModal }: Props) {
         }
       });
 
-      onFilter(filters as AdFilterTypes);
-      closeModal();
+      const handlers = new Promise(resolve => {
+        onFilter(filters as AdFilterTypes);
+        setSsFilters(filters as AdFilterTypes);
+
+        resolve(null);
+      });
+
+      handlers.then(() => closeModal());
     }
   });
 

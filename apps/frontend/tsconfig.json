@@ -17,7 +17,8 @@
       "@customComponents/*": ["src/components/custom/*"],
       "@components/*": ["src/components/*"],
       "@context/*": ["src/providers/context/*"],
-      "@images/*": ["public/images/*"]
+      "@images/*": ["public/images/*"],
+      "@hooks/*": ["src/hooks/*"]
     },
     "plugins": [
       {
