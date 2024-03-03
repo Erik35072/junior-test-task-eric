@@ -57,7 +57,7 @@ export default function AdDetails() {
                 {ad?.images.map(image => (
                   <SwiperSlide key={`add-image-${image.id}`}>
                     {/* In my opinion 30vh on xl devices is very ugly, that is the reason for inappropriate slide sizes */}
-                    <Box sx={{ height: { xs: "30vh", md: "50vh" }, position: "relative" }}>
+                    <Box sx={{ height: { xs: "30vh", md: "40vh" }, position: "relative" }}>
                       <Image src={image.image} alt="Add image" fill style={{ objectFit: "cover" }} />
                     </Box>
                   </SwiperSlide>

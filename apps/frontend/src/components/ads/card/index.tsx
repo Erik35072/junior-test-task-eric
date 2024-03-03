@@ -1,12 +1,10 @@
 "use client";
 
-import { MouseEvent, useState } from "react";
 // components
-import { Box, IconButton, Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 // images
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import LikeButton from "../like-button";
 
 type Props = {
@@ -18,13 +16,6 @@ type Props = {
 };
 
 export default function Card({ id, title, thumbnail, city, price }: Props) {
-  const [isLiked, setIsLiked] = useState(false);
-
-  const toggleLike = (e: MouseEvent) => {
-    e.preventDefault();
-    setIsLiked(c => !c);
-  };
-
   return (
     <Link href={`/ads/${id}`}>
       <Paper>
