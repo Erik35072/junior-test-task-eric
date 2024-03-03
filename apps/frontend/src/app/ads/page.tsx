@@ -7,15 +7,16 @@ import { Box } from "@mui/material";
 import { Ad } from "src/types/ad";
 import Api from "src/api";
 import { WrapWithLoading } from "@customComponents/wrappers";
+import { AdFilterTypes } from "src/types/ad/filters";
 import { AdCard } from "../../components/ads";
 import AdsCap from "../../components/ads/cap";
 
 export default function Ads() {
   const [ads, setAds] = useState<Ad[]>([]);
 
-  const getAds = useCallback(async () => {
+  const getAds = useCallback(async (filter?: AdFilterTypes) => {
     try {
-      const { results } = await Api.ads.getAds();
+      const { results } = await Api.ads.getAds(filter);
       if (results) {
         setAds(results);
       } else {
