@@ -1,17 +1,17 @@
 "use client";
 
+import Api from "src/api";
 import { useCallback, useEffect, useState } from "react";
+// utils
 import { toast } from "react-toastify";
+import { AdFilterTypes } from "src/types/ad/filters";
+import { Ad } from "src/types/ad";
+// context
+import { FilterContextProvider } from "@context/ads-filter";
 // components
 import { Box } from "@mui/material";
-import { Ad } from "src/types/ad";
-import Api from "src/api";
-import { WrapWithLoading } from "@customComponents/wrappers";
-import { AdFilterTypes } from "src/types/ad/filters";
-import { FilterContextProvider } from "@context/ads-filter";
-import WrapWithNoResult from "@customComponents/wrappers/wrap-with-no-result";
-import { AdCard } from "../../components/ads";
-import AdsCap from "../../components/ads/cap";
+import { WrapWithLoading, WrapWithNoResult } from "@customComponents/wrappers";
+import { AdCard, PageCap } from "@components/ads";
 
 export default function Ads() {
   const [loading, setLoading] = useState(false);
@@ -39,7 +39,7 @@ export default function Ads() {
   return (
     <Box className="page-max-w">
       <FilterContextProvider value={{ onFilter: getAds, filtering: loading }}>
-        <AdsCap />
+        <PageCap />
         <Box sx={{ py: 5 }}>
           <WrapWithLoading loading={loading}>
             <WrapWithNoResult length={ads.length}>

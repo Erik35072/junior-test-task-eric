@@ -1,11 +1,13 @@
 import React, { ReactNode } from "react";
 import "./global.css";
-import { Box } from "@mui/material";
+// providers
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
-import ToastProvider from "../providers/toast";
+// components
+import { Box } from "@mui/material";
 import theme from "../providers/mui";
 import { Header, Footer } from "../components/layout";
+import ToastProvider from "../providers/toast";
 
 export const metadata = {
   title: "Welcome to frontend",

@@ -1,8 +1,7 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/jsx-props-no-spreading */
+import { PropsWithChildren } from "react";
+// components
 import { Box } from "@mui/material";
 import Link from "next/link";
-import { PropsWithChildren } from "react";
 
 interface LinkProps {
   to: string;

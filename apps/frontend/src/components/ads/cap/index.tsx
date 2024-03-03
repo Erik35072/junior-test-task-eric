@@ -1,11 +1,12 @@
 "use client";
 
 import { useContext, useState } from "react";
+// context
+import { FilterContext } from "@context/ads-filter";
 // components
 import { Box, Paper, Typography } from "@mui/material";
 import { BaseModal } from "src/components/common/modal";
 import { SimpleButton } from "@commonComponents/buttons";
-import { FilterContext } from "@context/ads-filter";
 import Filter from "./filter";
 
 export default function AdsCap() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { MouseEvent, useEffect, useState } from "react";
+import { MouseEvent, useCallback, useEffect, useState } from "react";
 // components
 import { IconButton } from "@mui/material";
 // icons
@@ -23,23 +23,26 @@ export default function LikeButton({ id }: Props) {
     }
   }, [id]);
 
-  const toggleLike = (e: MouseEvent) => {
-    e.preventDefault();
-    setIsLiked(c => !c);
-    const likedAds = localStorage.getItem(LIKED_ADS_STORAGE_KEY);
-    if (likedAds !== null) {
-      const likedAdsParsed: LikeAdType[] = JSON.parse(likedAds);
-      const currentAd = likedAdsParsed.find(({ id: sId }) => sId === id);
-      const isExist = Boolean(currentAd);
-      if (isExist) {
-        localStorage.setItem(LIKED_ADS_STORAGE_KEY, JSON.stringify(likedAdsParsed.filter(({ id: sId }) => id !== sId)));
+  const toggleLike = useCallback(
+    (e: MouseEvent) => {
+      e.preventDefault();
+      setIsLiked(c => !c);
+      const likedAds = localStorage.getItem(LIKED_ADS_STORAGE_KEY);
+      if (likedAds !== null) {
+        const likedAdsParsed: LikeAdType[] = JSON.parse(likedAds);
+        const currentAd = likedAdsParsed.find(({ id: sId }) => sId === id);
+        const isExist = Boolean(currentAd);
+        if (isExist) {
+          localStorage.setItem(LIKED_ADS_STORAGE_KEY, JSON.stringify(likedAdsParsed.filter(({ id: sId }) => id !== sId)));
+        } else {
+          localStorage.setItem(LIKED_ADS_STORAGE_KEY, JSON.stringify([...likedAdsParsed, { id }]));
+        }
       } else {
-        localStorage.setItem(LIKED_ADS_STORAGE_KEY, JSON.stringify([...likedAdsParsed, { id }]));
+        localStorage.setItem(LIKED_ADS_STORAGE_KEY, JSON.stringify([{ id }]));
       }
-    } else {
-      localStorage.setItem(LIKED_ADS_STORAGE_KEY, JSON.stringify([{ id }]));
-    }
-  };
+    },
+    [id]
+  );
 
   return (
     <IconButton title="Like" size="small" onClick={toggleLike}>

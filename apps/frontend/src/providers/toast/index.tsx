@@ -11,7 +11,7 @@ export default function ToastProvider({ children }: ToastProviderProps) {
   return (
     <>
       {children}
-      <ToastContainer autoClose={1500} hideProgressBar />
+      <ToastContainer autoClose={1500} hideProgressBar pauseOnHover={false} />
     </>
   );
 }
