@@ -1,14 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 // components
 import { Box, Typography } from "@mui/material";
 import { FormikProvider, useFormik } from "formik";
 import { FormikField, FormikSubmitBtn } from "src/components/common/control";
 // types
 import { AdFilterTypes } from "src/types/ad/filters";
+import { FilterContext } from "@context//ads-filter";
 
-export default function Filter() {
+interface Props {
+  closeModal: () => void;
+}
+
+export default function Filter({ closeModal }: Props) {
+  const { onFilter, filtering } = useContext(FilterContext);
+
   const formik = useFormik<AdFilterTypes>({
     initialValues: {
       maxPrice: "",
@@ -17,7 +24,18 @@ export default function Filter() {
       city: "",
       district: ""
     },
-    onSubmit: () => {}
+    onSubmit: values => {
+      const filters: { [key: string]: string } = {};
+
+      Object.entries(values).forEach(([key, value]) => {
+        if (value) {
+          filters[key] = value;
+        }
+      });
+
+      onFilter(filters as AdFilterTypes);
+      closeModal();
+    }
   });
 
   const { handleSubmit } = formik;
@@ -43,7 +61,9 @@ export default function Filter() {
             <FormikField field_key="search" size="small" title="Search" />
           </Box>
           <Box sx={{ flexBasis: "10%" }}>
-            <FormikSubmitBtn fullWidth>Apply</FormikSubmitBtn>
+            <FormikSubmitBtn loading={filtering} fullWidth>
+              Apply
+            </FormikSubmitBtn>
           </Box>
         </Box>
       </FormikProvider>

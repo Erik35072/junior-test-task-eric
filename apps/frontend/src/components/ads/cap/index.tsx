@@ -41,7 +41,7 @@ export default function AdsCap() {
 
       <BaseModal open={openFilters} onClose={handleFiltersClose}>
         <Paper sx={{ px: 4, py: 2 }}>
-          <Filter />
+          <Filter closeModal={handleFiltersClose} />
         </Paper>
       </BaseModal>
     </Box>
